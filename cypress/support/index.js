@@ -18,3 +18,11 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+Cypress.on('test:after:run', (testAttr, runnable) => {
+  console.log("after test hook works")
+  cy.task('logit', "from test:after:run").then(asdf => {
+    console.log("returned from task")
+    console.log(asdf)
+  });
+});

@@ -8,4 +8,13 @@ module.exports = on => {
   }
 
   on('file:preprocessor', webpack(options))
+
+  on('task', {
+    logit(something) {
+      console.log('made it to the task');
+      console.log(something)
+
+      return `${something} MODIFIED`;
+    }
+  });
 }
